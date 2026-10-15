@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meeting Cost</title>
+<link rel="icon" href="icon.svg">
+<link rel="stylesheet" href="base.css">
+<style>
+  form{display:grid;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));gap:.75rem;margin:.75rem 0;max-width:34rem}
+  form label{display:grid;gap:.3rem}
+  .cost{font-size:clamp(3rem,15vw,5rem);font-weight:800;font-variant-numeric:tabular-nums;line-height:1.1;margin:1rem 0 .25rem}
+  .time{font-size:1.3rem;color:var(--muted);font-variant-numeric:tabular-nums}
+  .controls button{min-width:6rem;padding:.6rem 1rem}
+  .facts{color:var(--muted);margin-top:1rem}
+</style>
+</head>
+<body>
+<main>
+  <h1>Meeting Cost</h1>
+  <p class="sub">How much is this meeting costing? Set the people and average hourly rate, then start.</p>
+  <form id="form">
+    <label>People<input type="number" id="people" min="1" max="500" value="6"></label>
+    <label>Average hourly rate<input id="rate" inputmode="decimal" value="55"></label>
+    <label>Currency<input id="cur" value="$" maxlength="4"></label>
+  </form>
+  <p class="cost" id="cost" aria-live="off">$0.00</p>
+  <p class="time" id="time">0:00:00</p>
+  <div class="row controls"><button id="go" class="primary">Start</button><button id="reset">Reset</button></div>
+  <p class="facts" id="facts"></p>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
